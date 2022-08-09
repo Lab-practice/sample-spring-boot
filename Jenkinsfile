@@ -3,7 +3,7 @@ pipeline {
         environment {
         ENV_DOCKER = credentials('dockerhub')
         SONAR_TOKEN = credentials('sonar')
-        DOCKERIMAGE = "sgassama5/lab-practice"
+        DOCKERIMAGE = "lab-practice"
         EKS_CLUSTER_NAME = "demo-cluster"
     }
     stages {
@@ -15,13 +15,13 @@ pipeline {
                 sh 'chmod +x gradlew && ./gradlew build jacocoTestReport'
             }
         }
-        stage('sonarqube') {
-        agent {
-            docker { image 'sonarsource/sonar-scanner-cli:latest' } }
-            steps {
-                sh 'sonar-scanner'
-            }
-        }
+        // stage('sonarqube') {
+        // agent {
+        //     docker { image 'sonarsource/sonar-scanner-cli:latest' } }
+        //     steps {
+        //         sh 'sonar-scanner'
+        //     }
+        // }
         stage('docker build') {
             agent any
             steps {
