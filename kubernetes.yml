@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sample-spring-boot
-  namespace: sidi_gassama
+  namespace: sidi-gassama
 spec:
   replicas: 1 # 1 PODs at any given point of time
   selector:
@@ -26,7 +26,7 @@ metadata:
   name: sample-spring-boot-service
   labels:
     name: sample-spring-boot
-    namespace: sidi_gassama
+    namespace: sidi-gassama
 spec:
   ports:
     - port: 8080 # The service will publish the application on the default http port(80)
