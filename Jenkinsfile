@@ -2,7 +2,8 @@ pipeline {
     agent none
         environment {
         ENV_DOCKER = credentials('dockerhub')
-        DOCKERIMAGE = "sgassama5/lab-prctice"
+        SONAR_TOKEN = credentials('sonar')
+        DOCKERIMAGE = "sgassama5/lab-practice"
         EKS_CLUSTER_NAME = "demo-cluster"
     }
     stages {
